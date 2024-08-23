@@ -1,0 +1,26 @@
+<table class="table" border="1">
+    <thead>
+        <th>Title</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>All Day</th>
+        <th>Category</th>
+        <th>Is Active</th>
+    </thead>
+    <tbody>
+        {% for event in all_events %}
+        <tr>
+            <td>
+                <a target="_blank" href="{{ 'event-detail'|page({ 'id' : event.id }) }}">
+                    {{ event.title }}
+                </a>
+            </td>
+            <td>{{ event.start_time.format('Y-m-d H:i') }}</td>
+            <td>{{ event.end_time.format('Y-m-d H:i') }}</td>
+            <td>{{ event.all_day == 1 ? 'Yes' : 'No' }}</td>
+            <td>{{ event.categories.implode('name',', ')}}</td>
+            <td>{{ event.is_active == 1 ? 'Yes' : 'No' }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

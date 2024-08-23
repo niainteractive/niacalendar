@@ -1,0 +1,10 @@
+name: Categories
+form: $/niainteractive/event/models/category/fields.yaml
+modelClass: NiaInteractive\Event\Models\Category
+defaultRedirect: niainteractive/event/categories
+create:
+    redirect: 'niainteractive/event/categories/update/:id'
+    redirectClose: niainteractive/event/categories
+update:
+    redirect: niainteractive/event/categories
+    redirectClose: niainteractive/event/categories
