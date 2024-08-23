@@ -1,0 +1,53 @@
+
+<div id="calendar"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        events: {{ events|json_encode|raw }},
+
+        headerToolbar: {
+            left: 'prevYear,prev,next,nextYear today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
+        },
+        buttonText: {
+            today: 'today',
+            month: 'month',
+            week: 'week',
+            day: 'day',
+            list: 'list'
+        },
+        initialView: 'dayGridMonth',
+        locale: 'en', // the initial locale. if not specified, uses the first one
+        initialDate: moment().toDate(),
+        navLinks: true, // can click day/week names to navigate views
+        timeZone: 'UTC',
+        /*allow or disallow drag&drop:*/
+        editable: false,
+        allDaySlot: false,
+        allDayText: 'Full Day',
+        dayMaxEvents: true, // allow "more" link when too many events
+        eventTimeFormat: { // like '14:30:00'
+            hour: '2-digit',
+            minute: '2-digit',
+            meridiem: true,
+            hour12: true
+        },
+        eventClick : function (event) {
+            if (event.event.url) {
+                event.jsEvent.preventDefault()
+                window.location.href = event.event.url;
+            }
+        },
+
+    });
+
+
+    calendar.render();
+
+});
+</script>

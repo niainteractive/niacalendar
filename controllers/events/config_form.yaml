@@ -1,0 +1,10 @@
+name: Events
+form: $/niainteractive/event/models/event/fields.yaml
+modelClass: NiaInteractive\Event\Models\Event
+defaultRedirect: niainteractive/event/events
+create:
+    redirect: 'niainteractive/event/events/update/:id'
+    redirectClose: niainteractive/event/events
+update:
+    redirect: niainteractive/event/events
+    redirectClose: niainteractive/event/events

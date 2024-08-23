@@ -1,0 +1,20 @@
+plugin:
+    name: 'niainteractive.event::lang.plugin.name'
+    description: 'niainteractive.event::lang.plugin.description'
+    author: NiaInteractive
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    main-menu-nia-events:
+        label: Events
+        url: niainteractive/event/events
+        icon: icon-certificate
+        sideMenu:
+            side-menu-nia-events:
+                label: Events
+                url: niainteractive/event/events
+                icon: icon-certificate
+            side-menu-categories:
+                label: Categories
+                url: niainteractive/event/categories
+                icon: icon-sitemap

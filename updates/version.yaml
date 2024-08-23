@@ -1,0 +1,10 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table niainteractive_event_events'
+    - builder_table_create_niainteractive_event_events.php
+    - builder_table_create_niainteractive_event_category_events.php
+1.0.3:
+    - 'Created table niainteractive_event_categories'
+    - builder_table_create_niainteractive_event_categories.php
+    - seed_categories.php

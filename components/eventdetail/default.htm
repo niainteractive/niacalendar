@@ -1,0 +1,33 @@
+{% set event = __SELF__.getRecord() %}
+
+
+<table class="table" border="1">
+    <tbody>
+        <tr>
+            <td>Title</td>
+            <td>
+                {{ event.title }}
+            </td>
+        <tr>
+        <tr>
+            <td>Start Time</td>
+            <td>{{ event.start_time.format('Y-m-d H:i') }}</td>
+        </tr>
+        <tr>
+            <td>End Time</td>
+            <td>{{ event.end_time.format('Y-m-d H:i') }}</td>
+        </tr>
+        <tr>
+            <td>All Day</td>
+            <td>{{ event.all_day == 1 ? 'Yes' : 'No' }}</td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td>{{ event.categories.implode('name',', ')}}</td>
+        </tr>
+        <tr>
+            <td>Is Active</td>
+            <td>{{ event.is_active == 1 ? 'Yes' : 'No' }}</td>
+        </tr>
+    </tbody>
+</table>

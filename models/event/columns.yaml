@@ -1,0 +1,31 @@
+columns:
+    title:
+        label: Title
+        type: text
+        searchable: true
+    start_time:
+        label: Start Time
+        type: text
+        searchable: true
+        sortable: true
+    end_time:
+        label: End Time
+        type: text
+        searchable: true
+        sortable: true
+    all_day:
+        label: All Day
+        type: switch
+        searchable: true
+        sortable: true
+    category:
+        label: Category
+        relation: categories
+        select: name
+        searchable: true
+        sortable: true
+    is_active:
+        label: is Active
+        type: switch
+        searchable: true
+        sortable: true
