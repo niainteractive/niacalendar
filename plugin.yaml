@@ -6,12 +6,12 @@ plugin:
     homepage: ''
 navigation:
     main-menu-nia-niacalendars:
-        label: Events
+        label: Nia Calendar
         url: niainteractive/niacalendar/niacalendars
         icon: icon-certificate
         sideMenu:
             side-menu-nia-niacalendars:
-                label: Events
+                label: Nia Calendar
                 url: niainteractive/niacalendar/niacalendars
                 icon: icon-certificate
             side-menu-categories:
