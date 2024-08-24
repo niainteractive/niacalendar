@@ -1,4 +1,4 @@
-<?php namespace NiaInteractive\Event\Models;
+<?php namespace NiaInteractive\NiaCalendar\Models;
 
 use Model;
 use Carbon\Carbon;
@@ -6,7 +6,7 @@ use Carbon\Carbon;
 /**
  * Model
  */
-class Event extends Model
+class NiaCalendar extends Model
 {
     use \October\Rain\Database\Traits\Validation;
     
@@ -14,7 +14,7 @@ class Event extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'niainteractive_event_events';
+    public $table = 'niainteractive_niacalendar_niacalendars';
 
     /**
      * @var array Validation rules
@@ -69,8 +69,10 @@ class Event extends Model
 
     public $belongsToMany = [
         'categories' => [
-            'NiaInteractive\Event\Models\Category',
-            'table'    => 'niainteractive_event_category_events',
+            'NiaInteractive\NiaCalendar\Models\Category',
+            'table'    => 'niainteractive_niacalendar_category_niacalendars',
+            'key' => 'category_id',
+            'otherKey' => 'niacalendar_id',
         ]
     ];
 

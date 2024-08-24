@@ -1,7 +1,7 @@
-<?php namespace NiaInteractive\Event\Updates\Seeds;
+<?php namespace NiaInteractive\NiaCalendar\Updates\Seeds;
 
 
-use NiaInteractive\Event\Models\Category;
+use NiaInteractive\NiaCalendar\Models\Category;
 
 class SeedCategories extends \Seeder
 {

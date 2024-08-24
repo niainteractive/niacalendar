@@ -1,5 +1,5 @@
-list: $/niainteractive/event/models/category/columns.yaml
-modelClass: NiaInteractive\Event\Models\Category
+list: $/niainteractive/niacalendar/models/category/columns.yaml
+modelClass: NiaInteractive\NiaCalendar\Models\Category
 title: Categories
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
@@ -9,4 +9,4 @@ toolbar:
     buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
-recordUrl: 'niainteractive/event/categories/update/:id'
+recordUrl: 'niainteractive/niacalendar/categories/update/:id'

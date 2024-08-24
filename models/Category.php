@@ -1,4 +1,4 @@
-<?php namespace NiaInteractive\Event\Models;
+<?php namespace NiaInteractive\NiaCalendar\Models;
 
 use Model;
 
@@ -19,7 +19,7 @@ class Category extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'niainteractive_event_categories';
+    public $table = 'niainteractive_niacalendar_categories';
 
     /**
      * @var array Validation rules

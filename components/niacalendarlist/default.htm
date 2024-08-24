@@ -1,0 +1,26 @@
+<table class="table" border="1">
+    <thead>
+        <th>Title</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>All Day</th>
+        <th>Category</th>
+        <th>Is Active</th>
+    </thead>
+    <tbody>
+        {% for niacalendar in all_niacalendars %}
+        <tr>
+            <td>
+                <a target="_blank" href="{{ 'niacalendar-detail'|page({ 'id' : niacalendar.id }) }}">
+                    {{ niacalendar.title }}
+                </a>
+            </td>
+            <td>{{ niacalendar.start_time.format('Y-m-d H:i') }}</td>
+            <td>{{ niacalendar.end_time.format('Y-m-d H:i') }}</td>
+            <td>{{ niacalendar.all_day == 1 ? 'Yes' : 'No' }}</td>
+            <td>{{ niacalendar.categories.implode('name',', ')}}</td>
+            <td>{{ niacalendar.is_active == 1 ? 'Yes' : 'No' }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

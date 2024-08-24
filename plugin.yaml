@@ -1,20 +1,20 @@
 plugin:
-    name: 'niainteractive.event::lang.plugin.name'
-    description: 'niainteractive.event::lang.plugin.description'
+    name: 'niainteractive.niacalendar::lang.plugin.name'
+    description: 'niainteractive.niacalendar::lang.plugin.description'
     author: NiaInteractive
     icon: oc-icon-adjust
     homepage: ''
 navigation:
-    main-menu-nia-events:
+    main-menu-nia-niacalendars:
         label: Events
-        url: niainteractive/event/events
+        url: niainteractive/niacalendar/niacalendars
         icon: icon-certificate
         sideMenu:
-            side-menu-nia-events:
+            side-menu-nia-niacalendars:
                 label: Events
-                url: niainteractive/event/events
+                url: niainteractive/niacalendar/niacalendars
                 icon: icon-certificate
             side-menu-categories:
                 label: Categories
-                url: niainteractive/event/categories
+                url: niainteractive/niacalendar/categories
                 icon: icon-sitemap

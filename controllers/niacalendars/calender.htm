@@ -1,5 +1,5 @@
 <div class="btn-group m-e" style="margin-bottom: 20px;">
-    <a href="<?= Backend::url('niainteractive/event/events') ?>" class="btn btn-primary oc-icon-arrow-left">
+    <a href="<?= Backend::url('niainteractive/niacalendar/niacalendars') ?>" class="btn btn-primary oc-icon-arrow-left">
         Back
     </a>
 </div>
@@ -13,7 +13,7 @@ addEventListener('page:loaded', function() {
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
-        events: <?php echo json_encode($events); ?>,
+        events: <?php echo json_encode($niacalendars); ?>,
 
         headerToolbar: {
             left: 'prevYear,prev,next,nextYear today',

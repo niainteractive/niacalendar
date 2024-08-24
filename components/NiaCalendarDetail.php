@@ -1,14 +1,14 @@
-<?php namespace NiaInteractive\Event\Components;
+<?php namespace NiaInteractive\NiaCalendar\Components;
 
 use Cms\Classes\ComponentBase;
-use NiaInteractive\Event\Models\Event;
+use NiaInteractive\NiaCalendar\Models\NiaCalendar;
 
-class EventDetail extends ComponentBase
+class NiaCalendarDetail extends ComponentBase
 {
     public function componentDetails()
     {
         return [
-            'name'        => 'EventDetail Component',
+            'name'        => 'NiaCalendarDetail Component',
             'description' => 'No description provided yet...'
         ];
     }
@@ -16,7 +16,7 @@ class EventDetail extends ComponentBase
     
     public function getRecord()
     {
-        $r = Event::where('is_active',1);
+        $r = NiaCalendar::where('is_active',1);
         $r->where('id',$this->param('id'));
         return $r->first();
     }

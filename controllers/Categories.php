@@ -1,18 +1,21 @@
-<?php namespace NiaInteractive\Event\Controllers;
+<?php namespace NiaInteractive\NiaCalendar\Controllers;
 
 use Backend\Classes\Controller;
 use BackendMenu;
 
 class Categories extends Controller
 {
-    public $implement = [        'Backend\Behaviors\ListController',        'Backend\Behaviors\FormController'    ];
-    
+    public $implement = [
+        'Backend\Behaviors\ListController',
+        'Backend\Behaviors\FormController'
+    ];
+        
     public $listConfig = 'config_list.yaml';
     public $formConfig = 'config_form.yaml';
 
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('NiaInteractive.Event', 'main-menu-nia-events', 'side-menu-categories');
+        BackendMenu::setContext('NiaInteractive.NiaCalendar', 'main-menu-nia-niacalendars', 'side-menu-categories');
     }
 }

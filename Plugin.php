@@ -1,4 +1,4 @@
-<?php namespace NiaInteractive\Event;
+<?php namespace NiaInteractive\NiaCalendar;
 
 use System\Classes\PluginBase;
 
@@ -7,9 +7,9 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'NiaInteractive\Event\Components\EventList' => 'EventList',
-            'NiaInteractive\Event\Components\EventDetail' => 'EventDetail',
-            'NiaInteractive\Event\Components\EventCalender' => 'EventCalender',
+            'NiaInteractive\NiaCalendar\Components\NiaCalendarList' => 'NiaCalendarList',
+            'NiaInteractive\NiaCalendar\Components\NiaCalendarDetail' => 'NiaCalendarDetail',
+            'NiaInteractive\NiaCalendar\Components\NiaCalendar' => 'NiaCalendar',
         ];
     }
 

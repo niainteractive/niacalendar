@@ -1,0 +1,10 @@
+name: NiaCalendars
+form: $/niainteractive/niacalendar/models/niacalendar/fields.yaml
+modelClass: NiaInteractive\NiaCalendar\Models\NiaCalendar
+defaultRedirect: niainteractive/niacalendar/niacalendars
+create:
+    redirect: 'niainteractive/niacalendar/niacalendars/update/:id'
+    redirectClose: niainteractive/niacalendar/niacalendars
+update:
+    redirect: niainteractive/niacalendar/niacalendars
+    redirectClose: niainteractive/niacalendar/niacalendars

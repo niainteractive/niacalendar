@@ -1,13 +1,13 @@
-<?php namespace NiaInteractive\Event\Updates;
+<?php namespace NiaInteractive\NiaCalendar\Updates;
 
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class BuilderTableCreateNiainteractiveEventEvents extends Migration
+class BuilderTableCreateNiainteractiveNiaCalendarNiaCalendars extends Migration
 {
     public function up()
     {
-        Schema::create('niainteractive_event_events', function($table)
+        Schema::create('niainteractive_niacalendar_niacalendars', function($table)
         {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
@@ -28,6 +28,6 @@ class BuilderTableCreateNiainteractiveEventEvents extends Migration
     
     public function down()
     {
-        Schema::dropIfExists('niainteractive_event_events');
+        Schema::dropIfExists('niainteractive_niacalendar_niacalendars');
     }
 }
