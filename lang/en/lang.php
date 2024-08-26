@@ -1,6 +1,6 @@
 <?php return [
     'plugin' => [
-        'name' => 'Event',
+        'name' => 'NiaCalendar',
         'description' => ''
     ]
 ];

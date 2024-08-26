@@ -1,6 +1,6 @@
 list: $/niainteractive/niacalendar/models/niacalendar/columns.yaml
 modelClass: NiaInteractive\NiaCalendar\Models\NiaCalendar
-title: NiaCalendars
+title: Nia Calendar
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
 showCheckboxes: true

@@ -1,0 +1,8 @@
+{
+    "name": "niainteractive/niacalendar-plugin",
+    "type": "october-plugin",
+    "description": "NiaCalendar is a fully functional events calendar for OctoberCMS using FullCalendar.io",
+    "require": {
+        "composer/installers": ">=1.0"
+    }
+}
