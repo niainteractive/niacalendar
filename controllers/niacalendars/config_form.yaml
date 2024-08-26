@@ -1,4 +1,4 @@
-name: NiaCalendars
+name: Nia Calendar
 form: $/niainteractive/niacalendar/models/niacalendar/fields.yaml
 modelClass: NiaInteractive\NiaCalendar\Models\NiaCalendar
 defaultRedirect: niainteractive/niacalendar/niacalendars
