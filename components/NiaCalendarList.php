@@ -1,6 +1,7 @@
 <?php namespace NiaInteractive\NiaCalendar\Components;
 
 use Cms\Classes\ComponentBase;
+use NiaInteractive\NiaCalendar\Models\Category;
 use NiaInteractive\NiaCalendar\Models\NiaCalendar;
 
 
@@ -10,13 +11,22 @@ class NiaCalendarList extends ComponentBase
     {
         return [
             'name'        => 'NiaCalendarList Component',
-            'description' => 'No description provided yet...'
+            'description' => 'used to show Events in List'
         ];
     }
 
     public function defineProperties()
     {
-        return [];
+
+        $categories = Category::lists('name','id');
+
+        return [
+            'categories' => [
+                'title' => 'Select Categories',
+                'type' => 'set',
+                'items' => $categories,
+            ]
+        ];
     }
 
     public function onRun(){

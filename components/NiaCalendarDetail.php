@@ -9,16 +9,21 @@ class NiaCalendarDetail extends ComponentBase
     {
         return [
             'name'        => 'NiaCalendarDetail Component',
-            'description' => 'No description provided yet...'
+            'description' => 'used to show Event in detail'
         ];
     }
 
-    
-    public function getRecord()
-    {
-        $r = NiaCalendar::where('is_active',1);
-        $r->where('id',$this->param('id'));
-        return $r->first();
+    public function onRun(){
+        $id = $this->param('id');
+        $this->page['niacalendar'] = NiaCalendar::where('is_active',1)
+        ->where('id',$id)
+        ->first();
+        
+        if (!$this->page['niacalendar']) {
+            $this->setStatusCode(404);
+            return $this->controller->run('404');
+        }
     }
+    
 
 }
