@@ -2,7 +2,7 @@
 
 use Cms\Classes\ComponentBase;
 use NiaInteractive\NiaCalendar\Models\Category;
-use NiaInteractive\NiaCalendar\Models\NiaCalendar;
+use NiaInteractive\NiaCalendar\Models\NiaCalendar as NiaCalendarModel;
 
 
 class NiaCalendarList extends ComponentBase
@@ -29,8 +29,14 @@ class NiaCalendarList extends ComponentBase
         ];
     }
 
-    public function onRun(){
-
-        $this->page['all_niacalendars'] = NiaCalendar::where('is_active',1)->get();
+    public function onRun()
+    {
+        $query = NiaCalendarModel::where('is_active',1);
+        if ($categories = $this->property('categories')) {
+            $query->whereHas('categories',function($query) use($categories){
+                $query->whereIn('id',$categories);
+            });
+        }
+        $this->page['all_niacalendars'] = $query->get();
     }
 }

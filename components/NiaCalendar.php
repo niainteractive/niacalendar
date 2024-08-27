@@ -41,6 +41,8 @@ class NiaCalendar extends ComponentBase
             });
         }
 
+        $all_niacalendars = $query->get();
+
         $niacalendars = [];
         $i = 0;
         foreach ($all_niacalendars as $key => $record) {
