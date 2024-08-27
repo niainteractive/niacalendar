@@ -14,5 +14,5 @@
 &nbsp;
 
 ## Notes
-- In Theme, {% styles %} and {% styles %} must be used
+- In Theme, {% scripts %} must be used on layout or page. it will add the necessary js/css of Fullcalendar
 

@@ -1,6 +1,7 @@
 <?php namespace NiaInteractive\NiaCalendar\Components;
 
 use Cms\Classes\ComponentBase;
+use NiaInteractive\NiaCalendar\Models\Category;
 use NiaInteractive\NiaCalendar\Models\NiaCalendar as NiaCalendarModel;
 
 
@@ -10,23 +11,36 @@ class NiaCalendar extends ComponentBase
     {
         return [
             'name'        => 'NiaCalendar Component',
-            'description' => 'No description provided yet...'
+            'description' => 'used to show Events in calender'
         ];
     }
 
     public function defineProperties()
     {
-        return [];
+
+        $categories = Category::lists('name','id');
+
+        return [
+            'categories' => [
+                'title' => 'Select Categories',
+                'type' => 'set',
+                'items' => $categories,
+            ]
+        ];
     }
 
-    public function onRun(){
-
+    public function onRun()
+    {
         $this->addJs('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js');
-        $this->addJs('/plugins/niainteractive/niacalendar/assets/vendor/fullcalendar/lib/main.min.js');
-        $this->addCss('/plugins/niainteractive/niacalendar/assets/vendor/fullcalendar/lib/main.min.css');
+        $this->addJs('//cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js');
 
-        $all_niacalendars = NiaCalendarModel::where('is_active',1)->get();
-        
+        $query = NiaCalendarModel::where('is_active',1);
+        if ($categories = $this->property('categories')) {
+            $query->whereHas('categories',function($query) use($categories){
+                $query->whereIn('id',$categories);
+            });
+        }
+
         $niacalendars = [];
         $i = 0;
         foreach ($all_niacalendars as $key => $record) {

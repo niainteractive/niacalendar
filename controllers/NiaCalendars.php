@@ -26,8 +26,7 @@ class NiaCalendars extends Controller
     {
         $this->pageTitle = "Calender";
         BackendMenu::setContext('NiaInteractive.NiaCalendar', 'main-menu-nia-niacalendars', 'side-menu-nia-calender');
-        $this->addJs('/plugins/niainteractive/niacalendar/assets/vendor/fullcalendar/lib/main.min.js');
-        $this->addCss('/plugins/niainteractive/niacalendar/assets/vendor/fullcalendar/lib/main.min.css');
+        $this->addJs('//cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js');
         $all_niacalendars = NiaCalendar::where('is_active',1)->get();
         
         $niacalendars = [];
