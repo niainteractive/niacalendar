@@ -1,5 +1,6 @@
 <?php namespace NiaInteractive\NiaCalendar\Components;
 
+use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
 use NiaInteractive\NiaCalendar\Models\Category;
 use NiaInteractive\NiaCalendar\Models\NiaCalendar as NiaCalendarModel;
@@ -22,11 +23,21 @@ class NiaCalendar extends ComponentBase
 
         return [
             'categories' => [
-                'title' => 'Select Categories',
+                'title' => 'Categories',
                 'type' => 'set',
                 'items' => $categories,
+            ],
+            'eventPageDetail' => [
+                'title' => 'Event Detail Page',
+                'type' => 'dropdown',
+                'default' => 'niacalendar-detail'
             ]
         ];
+    }
+
+    public function getEventPageDetailOptions()
+    {
+        return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
 
     public function onRun()
@@ -57,7 +68,7 @@ class NiaCalendar extends ComponentBase
             $niacalendars[$i]['color'] = $record->color ?? 'green' ;
             $niacalendars[$i]['overlap'] = true;
             $niacalendars[$i]['rendering'] = 'background';
-            $niacalendars[$i]['url'] = $this->pageUrl('niacalendar-detail',['id' => $record->id]);
+            $niacalendars[$i]['url'] = $this->pageUrl($this->property('eventPageDetail'),['id' => $record->id]);
             $i++;
         }
 
