@@ -11,7 +11,7 @@
         {% for niacalendar in all_niacalendars %}
         <tr>
             <td>
-                <a target="_blank" href="{{ 'niacalendar-detail'|page({ 'id' : niacalendar.id }) }}">
+                <a target="_blank" href="{{ __SELF__.property('eventPageDetail')|page({ 'id' : niacalendar.id }) }}">
                     {{ niacalendar.title }}
                 </a>
             </td>

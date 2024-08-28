@@ -1,5 +1,6 @@
 <?php namespace NiaInteractive\NiaCalendar\Components;
 
+use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
 use NiaInteractive\NiaCalendar\Models\Category;
 use NiaInteractive\NiaCalendar\Models\NiaCalendar as NiaCalendarModel;
@@ -25,8 +26,18 @@ class NiaCalendarList extends ComponentBase
                 'title' => 'Select Categories',
                 'type' => 'set',
                 'items' => $categories,
+            ],
+            'eventPageDetail' => [
+                'title' => 'Event Detail Page',
+                'type' => 'dropdown',
+                'default' => 'niacalendar-detail'
             ]
         ];
+    }
+
+    public function getEventPageDetailOptions()
+    {
+        return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
 
     public function onRun()
