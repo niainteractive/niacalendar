@@ -40,7 +40,7 @@ class NiaCalendars extends Controller
             }else{
                 $niacalendars[$i]['end'] = $record->start_time->endOfDay()->format('Y-m-d H:i');
             }
-            $niacalendars[$i]['color'] = $record->color ?? 'green' ;
+            $niacalendars[$i]['color'] = $record->category->color ?? 'green' ;
             $niacalendars[$i]['overlap'] = true;
             $niacalendars[$i]['rendering'] = 'background';
             $niacalendars[$i]['url'] = \Backend::URL('niainteractive/niacalendar/niacalendars/update/'.$record->id);

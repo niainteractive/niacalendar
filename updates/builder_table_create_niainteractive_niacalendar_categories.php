@@ -12,6 +12,7 @@ class BuilderTableCreateNiainteractiveNiaCalendarCategories extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
             $table->string('name')->nullable();
+            $table->string('color', 255)->nullable();
         });
     }
     

@@ -3,3 +3,7 @@ fields:
         label: Name
         span: full
         type: text
+    color:
+        label: Color
+        type: colorpicker
+        span: full

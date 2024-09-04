@@ -4,3 +4,6 @@ columns:
         type: text
         searchable: true
         sortable: true
+    color:
+        label: Color
+        type: colorpicker

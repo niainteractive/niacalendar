@@ -49,10 +49,11 @@ fields:
         type: datepicker
         mode: time
         dependsOn: [all_day,has_end_date]
-    color:
-        label: Color
-        type: colorpicker
+    short_description:
+        label: Short Description
+        type: textarea
         span: full
+        size: small
     description:
         label: Description
         type: richeditor

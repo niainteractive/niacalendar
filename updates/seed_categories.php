@@ -14,18 +14,23 @@ class SeedCategories extends \Seeder
         $items = [
             [
                 'name' => "Academic Calendar",
+                'color' => "#3498db",
             ],
             [
                 'name' => "Staff Calendar",
+                'color' => "#e67e22",
             ],
             [
                 'name' => "Board Meetings",
+                'color' => "#c0392b",
             ],
             [
                 'name' => "Parent Advisory Board Calendar",
+                'color' => "#16a085",
             ],
             [
                 'name' => "Board Calendar",
+                'color' => "#2b3e50",
             ],
         ];
 
@@ -34,6 +39,7 @@ class SeedCategories extends \Seeder
             // create new Status
             $status = Category::create([
                 'name' => trim($item['name']),
+                'color' => trim($item['color']),
             ]);
         }
     }
