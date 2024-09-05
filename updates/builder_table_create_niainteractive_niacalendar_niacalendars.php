@@ -21,7 +21,8 @@ class BuilderTableCreateNiainteractiveNiaCalendarNiaCalendars extends Migration
             $table->boolean('all_day')->nullable();
             $table->boolean('has_end_date')->nullable();
             $table->longText('description')->nullable();
-            $table->text('short_description')->nullable();
+            $table->text('brief')->nullable();
+            $table->string('location')->nullable();
             $table->boolean('is_active')->nullable();
         });
     }

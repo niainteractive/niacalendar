@@ -56,6 +56,7 @@ class NiaCalendar extends ComponentBase
 
         $niacalendars = [];
         $i = 0;
+
         foreach ($all_niacalendars as $key => $record) {
             $niacalendars[$i]['groupId'] = $record->id;
             $niacalendars[$i]['title'] = $record->title;
@@ -65,7 +66,7 @@ class NiaCalendar extends ComponentBase
             }else{
                 $niacalendars[$i]['end'] = $record->start_time->endOfDay()->format('Y-m-d H:i');
             }
-            $niacalendars[$i]['color'] = $record->color ?? 'green' ;
+            $niacalendars[$i]['color'] = $record->categories->value('color') ?? 'green' ;
             $niacalendars[$i]['overlap'] = true;
             $niacalendars[$i]['rendering'] = 'background';
             $niacalendars[$i]['url'] = $this->pageUrl($this->property('eventPageDetail'),['id' => $record->id]);

@@ -6,7 +6,11 @@ fields:
     title:
         label: Title
         type: text
-        span: full
+        span: auto
+    location:
+        label: Location
+        type: text
+        span: auto
     categories:
         label: Categories
         type: relation
@@ -49,8 +53,8 @@ fields:
         type: datepicker
         mode: time
         dependsOn: [all_day,has_end_date]
-    short_description:
-        label: Short Description
+    brief:
+        label: Brief
         type: textarea
         span: full
         size: small

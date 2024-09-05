@@ -13,6 +13,7 @@ class BuilderTableCreateNiainteractiveNiaCalendarCategories extends Migration
             $table->increments('id')->unsigned();
             $table->string('name')->nullable();
             $table->string('color', 255)->nullable();
+            $table->integer('sort_order')->nullable();
         });
     }
     
