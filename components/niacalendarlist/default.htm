@@ -1,9 +1,11 @@
 <table class="table" border="1">
     <thead>
         <th>Title</th>
+        <th>Location</th>
         <th>Start Time</th>
         <th>End Time</th>
         <th>All Day</th>
+        <th>Brief</th>
         <th>Category</th>
         <th>Is Active</th>
     </thead>
@@ -12,12 +14,14 @@
         <tr>
             <td>
                 <a target="_blank" href="{{ __SELF__.property('eventPageDetail')|page({ 'id' : niacalendar.id }) }}">
-                    {{ niacalendar.title }}
+                    {{ niacalendar.title|raw }}
                 </a>
             </td>
+            <td>{{ niacalendar.location|raw }}</td>
             <td>{{ niacalendar.start_time.format('Y-m-d H:i') }}</td>
             <td>{{ niacalendar.end_time.format('Y-m-d H:i') }}</td>
             <td>{{ niacalendar.all_day == 1 ? 'Yes' : 'No' }}</td>
+            <td>{{ niacalendar.brief|raw }}</td>
             <td>{{ niacalendar.categories.implode('name',', ')}}</td>
             <td>{{ niacalendar.is_active == 1 ? 'Yes' : 'No' }}</td>
         </tr>

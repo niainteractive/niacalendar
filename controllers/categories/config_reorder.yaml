@@ -1,0 +1,5 @@
+title: Category
+modelClass: NiaInteractive\NiaCalendar\Models\Category
+toolbar:
+    buttons: reorder_toolbar
+nameFrom: name
