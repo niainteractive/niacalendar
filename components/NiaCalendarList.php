@@ -32,7 +32,12 @@ class NiaCalendarList extends ComponentBase
                 'title' => 'Event Detail Page',
                 'type' => 'dropdown',
                 'default' => 'niacalendar-detail'
-            ]
+            ],
+            'show_past_event' => [
+                'title' => 'Show Past Events?',
+                'type' => 'checkbox',
+                'default' => '0'
+            ],
         ];
     }
 
@@ -47,13 +52,15 @@ class NiaCalendarList extends ComponentBase
         $now = Carbon::now();
         $query = NiaCalendarModel::where('is_active',1);
         
-        $query->where(function($query) use($now){
-            $query->where('start_time','>',$now);
-            $query->orWhere(function($query) use($now){
-                $query->where('start_time','<=',$now);
-                $query->where('end_time','>',$now);
+        if ($this->property('show_past_event') == 0) {
+            $query->where(function($query) use($now){
+                $query->where('start_time','>',$now);
+                $query->orWhere(function($query) use($now){
+                    $query->where('start_time','<=',$now);
+                    $query->where('end_time','>',$now);
+                });
             });
-        });
+        }
 
         if ($categories = $this->property('categories')) {
             $query->whereHas('categories',function($query) use($categories){
