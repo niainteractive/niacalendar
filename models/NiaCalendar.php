@@ -34,32 +34,56 @@ class NiaCalendar extends Model
 
     public $customMessages = [
         'end_time.required' => 'The End Date is required.',
+        'end_time.after' => 'The End Date must be Greater than Start Date.',
         'end_time.after_or_equal' => 'The End Date must be Greater than Start Date.',
     ];
 
     public function beforeValidate()
     {
         if (app()->runningInBackend() === TRUE) {
-
-            if (isset($this->start_date) && $this->start_date) {
-                $start_time = $this->start_date->format('Y-m-d');
-                if (isset($this->start_time) && $this->start_time) {
-                    $start_time = $this->start_date->format('Y-m-d')." ".$this->start_time->format('H:i');
+            if ($this->has_end_date == 0) {
+                if (isset($this->start_date) && $this->start_date) {
+                    if ($this->all_day == 1) {
+                        $this->start_time = $this->start_date->startOfday()->format('Y-m-d H:i');
+                        $this->end_time = $this->start_time->copy()->endOfDay();
+                    }else{
+                        $start_time = $this->start_date->format('Y-m-d');
+                        if (isset($this->start_time) && $this->start_time) {
+                            $start_time = $start_time." ".$this->start_time->format('H:i');
+                        }
+                        $this->start_time = new Carbon($start_time);
+                        $this->end_time = $this->start_time->copy()->endOfDay();
+                    }
                 }
-                $this->start_time = new Carbon($start_time);
-            }
-
-            if (isset($this->end_date) && $this->end_date) {
-                if (isset($this->end_time) && $this->end_time) {
-                    $end_time = $this->end_date->format('Y-m-d')." ".$this->end_time->format('H:i');
+            }else{
+                if(isset($this->start_date) && $this->start_date) {
+                    if ($this->all_day == 1) {
+                        $this->start_time = $this->start_date->startOfday()->format('Y-m-d H:i');
+                    }else{
+                        $start_time = $this->start_date->format('Y-m-d');
+                        if (isset($this->start_time) && $this->start_time) {
+                            $start_time = $start_time." ".$this->start_time->format('H:i');
+                        }
+                        $this->start_time = new Carbon($start_time);
+                    }
+                }
+                if (isset($this->end_date) && $this->end_date) {
+                    if ($this->all_day == 1) {
+                        $this->end_time = $this->end_date->endOfDay()->format('Y-m-d H:i');
+                    }else{
+                        $end_time = $this->end_date->format('Y-m-d');
+                        if (isset($this->end_time) && $this->end_time) {
+                            $end_time = $end_time." ".$this->end_time->format('H:i');
+                        }
+                        $this->end_time = new Carbon($end_time);
+                    }
                 }else{
-                    $end_time = $this->end_date->endOfDay()->format('Y-m-d H:i');
+                    $this->end_time = '';
                 }
-                $this->end_time = new Carbon($end_time);
             }
 
             if ($this->has_end_date == '1') {
-                $this->rules['end_time'] = 'required|after_or_equal:start_time';
+                $this->rules['end_time'] = 'required|after:start_time';
             }
         }
 

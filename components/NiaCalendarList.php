@@ -1,5 +1,6 @@
 <?php namespace NiaInteractive\NiaCalendar\Components;
 
+use Carbon\Carbon;
 use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
 use NiaInteractive\NiaCalendar\Models\Category;
@@ -42,7 +43,18 @@ class NiaCalendarList extends ComponentBase
 
     public function onRun()
     {
+
+        $now = Carbon::now();
         $query = NiaCalendarModel::where('is_active',1);
+        
+        $query->where(function($query) use($now){
+            $query->where('start_time','>',$now);
+            $query->orWhere(function($query) use($now){
+                $query->where('start_time','<=',$now);
+                $query->where('end_time','>',$now);
+            });
+        });
+
         if ($categories = $this->property('categories')) {
             $query->whereHas('categories',function($query) use($categories){
                 $query->whereIn('id',$categories);
