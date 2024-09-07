@@ -53,6 +53,10 @@ fields:
         type: datepicker
         mode: time
         dependsOn: [all_day,has_end_date]
+    image:
+        label: Image
+        type: fileupload
+        mode: image
     brief:
         label: Brief
         type: textarea

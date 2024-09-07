@@ -100,6 +100,12 @@ class NiaCalendar extends Model
         ]
     ];
 
+    public $attachOne = [
+        'image' => [
+            'System\Models\File',
+        ]
+    ];
+
     public function filterFields($fields, $context = null)
     {
         if (isset($fields->all_day) || isset($fields->has_end_date)) {
